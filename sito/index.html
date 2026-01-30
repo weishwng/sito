@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">DevPortfolio.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Chi Sono</a></li>
+            <li><a href="#projects">Progetti</a></li>
+            <li><a href="#contact">Contatti</a></li>
+            <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ciao, sono <span class="highlight">WeiSheng Chen</span></h1>
+            <p>Sviluppatore Web & UI Designer</p>
+            <a href="#projects" class="btn">Vedi i miei lavori</a>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <h2>Chi Sono</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Sono uno sviluppatore appassionato di tecnologie web moderne. Mi piace creare esperienze utente pulite e performanti.</p>
+                <div class="skills">
+                    <span>HTML5</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Java</span>
+                    <span>Python</span>
+                    <span>C</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>I Miei Progetti</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="card-image" style="background-color: #ddd;"></div> <div class="card-info">
+                    <h3>E-commerce App</h3>
+                    <p>Una piattaforma di shopping online responsive costruita con JS e API esterne.</p>
+                    <a href="#">Vedi codice <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background-color: #ccc;"></div>
+                <div class="card-info">
+                    <h3>Dashboard Analytics</h3>
+                    <p>Dashboard per visualizzazione dati con grafici interattivi.</p>
+                    <a href="#">Vedi codice <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="card-image" style="background-color: #bbb;"></div>
+                <div class="card-info">
+                    <h3>Portfolio Personale</h3>
+                    <p>Il sito che stai visitando ora, ottimizzato per SEO e performance.</p>
+                    <a href="#">Vedi codice <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contattami</h2>
+        <p>Hai un progetto in mente? Scrivimi!</p>
+        <a href="weisheng.chen@itiszuccante.edu.it" class="btn">Inviami una Email</a>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Weisheng. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
