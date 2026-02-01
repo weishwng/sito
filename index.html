@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Weisheng Chen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Weisheng Chen</h1>
+            <p>Studente di Informatica | Sviluppatore Web</p>
+            <div class="social-links">
+                <a href="https://github.com/weishengchen" target="_blank">Il mio GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="portfolio">
+            <h2 class="section-title">I Miei Progetti</h2>
+            <p style="text-align: center; color: #94a3b8; margin-bottom: 2rem;">
+                Una selezione dei lavori svolti durante il corso, concentrati su algoritmi e strutture dati.
+            </p>
+            
+            <div class="projects-grid" id="projects-list"></div>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #334155; margin: 4rem 0;">
+
+        <section id="bonus-project" class="bonus-section">
+            <h2 class="section-title">Extra: Sorting Visualizer</h2>
+            <p class="bonus-desc">
+                Un'applicazione interattiva che mostra visivamente come funziona l'algoritmo di ordinamento <strong>Bubble Sort</strong>.
+                Il JavaScript manipola il DOM in tempo reale per scambiare le barre in base alla loro altezza.
+            </p>
+            
+            <div id="visualizer-container"></div>
+            
+            <div class="controls">
+                <button onclick="startSorting()" id="btn-start">Avvia Ordinamento</button>
+                <button onclick="resetBars()" id="btn-reset">Genera Nuovi Dati</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Weisheng Chen - Progetto scolastico</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
