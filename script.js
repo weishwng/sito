@@ -5,7 +5,7 @@ const projects = [
         title: "Calcolo Numero PiGreco", 
         desc: "Un algoritmo in C++/JS per approssimare il valore di Pi Greco utilizzando serie matematiche, gestendo la precisione decimale.", 
         tags: ["Matematica", "Algoritmi"],
-        repoLink: "https://github.com/weishengchen/L010_CalcoloNumeroPigreco", // Link aggiornato
+        repoLink: "https://github.com/Zuccante/4id-consegne-2025-2026-weishwng/tree/main/L010_CalcoloNumeroPigreco", // Link aggiornato
         image: null 
     },
     { 
@@ -13,31 +13,31 @@ const projects = [
         title: "Triangolo Von Koch", 
         desc: "Implementazione ricorsiva per generare il frattale del Triangolo di Von Koch. Dimostrazione grafica della ricorsione.", 
         tags: ["Frattali", "Ricorsione", "Grafica"],
-        repoLink: "https://github.com/weishengchen/L007_TriangoloVonKoch",
-        image: null 
+        repoLink: "https://github.com/Zuccante/4id-consegne-2025-2026-weishwng/tree/main/L007_TriangoloVonKoch",
+        image: "C:\Users\wei.chen\Desktop\sito\sito\Screenshot 2026-02-09 083146.png"
     },
     { 
         id: "L006/8",
         title: "Binary Tree Structure", 
         desc: "Gestione di un Albero Binario: inserimento nodi, bilanciamento e algoritmi di visita (pre-order, in-order).", 
         tags: ["Strutture Dati", "Puntatori"],
-        repoLink: "https://github.com/weishengchen/L008_BinaryTree",
-        image: null 
+        repoLink: "https://github.com/Zuccante/4id-consegne-2025-2026-weishwng/tree/main/L008_BinaryTree",
+        image: "C:\Users\wei.chen\Desktop\sito\sito\Screenshot 2026-02-09 083235.png"
     },
     { 
         id: "L009",
         title: "Successione Numerica", 
         desc: "Analisi e generazione di successioni matematiche complesse tramite cicli iterativi ottimizzati.", 
         tags: ["Logica", "Iterazione"],
-        repoLink: "https://github.com/weishengchen/L009_Successione",
-        image: null 
+        repoLink: "https://github.com/Zuccante/4id-consegne-2025-2026-weishwng/tree/main/L009_Successione",
+        image: "C:\Users\wei.chen\Desktop\sito\sito\Screenshot 2026-02-09 084253.png" 
     },
     { 
         id: "P001",
         title: "Tic Tac Toe", 
         desc: "Il classico gioco del Tris. Gestione della logica di vittoria, pareggio e turni dei giocatori.", 
         tags: ["Game Dev", "Logica"],
-        repoLink: "https://github.com/weishengchen/P001_TicTacToe",
+        repoLink: "https://github.com/Zuccante/4id-consegne-2025-2026-weishwng/tree/main/P001_TicTacToe",
         image: null 
     }
 ];
