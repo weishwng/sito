@@ -1,4 +1,4 @@
-/* VARIABILI CSS: Colori che uso in tutto il sito */
+/* Variabili CSS */
 :root {
     /* Sfondi (tema scuro) */
     --sfondo-pagina: #0f172a;
@@ -19,12 +19,12 @@
     --barra-pivot: #f59e0b;          /* Arancio - pivot del Quick Sort */
 }
 
-/* Reset universale: applica le stesse regole a TUTTI gli elementi */
+/* Reset universale */
 * {
     box-sizing: border-box;  /* Includi padding e border nella larghezza */
 }
 
-/* CORPO DELLA PAGINA */
+/* Body - layout */
 body {
     font-family: system-ui, -apple-system, sans-serif;
     background-color: var(--sfondo-pagina);
@@ -37,12 +37,13 @@ body {
     min-height: 100vh;       /* Almeno l'altezza dello schermo */
 }
 
-/* INTESTAZIONE */
+/* Intestazione */
 .intestazione {
     text-align: center;
     padding: 30px 20px;
 }
 
+/* Titolo principale H1 */
 h1 {
     font-weight: 300;
     letter-spacing: 2px;
@@ -56,6 +57,7 @@ h1 {
     text-align: center;
 }
 
+/* Sottotitolo: testo secondario in stile italico */
 .sottotitolo {
     color: var(--testo-secondario);
     font-size: 12px;
@@ -63,7 +65,7 @@ h1 {
     font-style: italic;
 }
 
-/* PANNELLO CONTROLLI */
+/* Sezione controlli */
 .controlli {
     display: flex;
     gap: 20px;
@@ -79,7 +81,7 @@ h1 {
     max-width: 1000px;
 }
 
-/* GRUPPO: Serve per raggruppare label + input/select */
+/* Gruppi */
 .gruppo {
     display: flex;
     flex-direction: column;
@@ -87,6 +89,7 @@ h1 {
     align-items: center;
 }
 
+/* Variante slider: layout verticale per label e slider */
 .slider-gruppo {
     display: flex;
     flex-direction: column;
@@ -95,6 +98,7 @@ h1 {
     padding: 0 10px;
 }
 
+/* Etichette: testo piccolo in maiuscole */
 label {
     font-size: 11px;
     text-transform: uppercase;
@@ -105,7 +109,7 @@ label {
     white-space: nowrap;
 }
 
-/* BOTTONI E SELECT */
+/* Pulsanti */
 button, select, .slider-container {
     height: 44px;
     border-radius: 8px;
@@ -114,6 +118,7 @@ button, select, .slider-container {
     font-family: inherit;
 }
 
+/* Pulsanti: stile grigio standard con effetto hover */
 button {
     background-color: #334155;
     color: white;
@@ -123,34 +128,38 @@ button {
     transition: all 0.2s ease;
 }
 
+/* Effetto hover: cambio colore e animazione verso l'alto */
 button:hover {
     background-color: #475569;
     border-color: var(--testo-secondario);
     transform: translateY(-1px);
 }
 
+/* Effetto al click: pulsante torna alla posizione normale */
 button:active {
     transform: translateY(0);
 }
 
+/* Stato disabilitato: opacità ridotta e cursore non-allowed */
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* Pulsante ORDINA (colore speciale - accento principale) */
+/* Pulsante Ordina */
 #btnOrdina {
     background-color: var(--accento-principale);
     border: none;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
+/* Effetto hover sul pulsante Ordina: colore più intenso e ombra maggiore */
 #btnOrdina:hover {
     background-color: var(--accento-hover);
     box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
 }
 
-/* SELECT (menu a tendina) */
+/* Select */
 select {
     appearance: none;
     -webkit-appearance: none;
@@ -169,21 +178,24 @@ select {
     transition: border-color 0.2s;
 }
 
+/* Effetto hover sul select: cambia bordo */
 select:hover {
     border-color: var(--accento-principale);
 }
 
+/* Effetto focus sul select: evidenza con bordo e ombra */
 select:focus {
     border-color: var(--accento-principale);
     box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
 }
 
+/* Opzioni del dropdown: colore di sfondo scuro */
 select option {
     background-color: var(--sfondo-pannelli);
     color: white;
 }
 
-/* SLIDER (VELOCITÀ) */
+/* Slider */
 input[type=range] {
     height: 6px;
     width: 120px;
@@ -194,7 +206,7 @@ input[type=range] {
     appearance: none;
 }
 
-/* Il "pollicello" dello slider - Chrome/Safari */
+/* Pollicino dello slider - Chrome/Safari: parte trascinabile */
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -208,13 +220,14 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -7px;
 }
 
+/* Effetto hover sul pollicino - Chrome/Safari */
 input[type=range]::-webkit-slider-thumb:hover {
     background: var(--accento-hover);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6);
     transform: scale(1.1);
 }
 
-/* Il "pollicello" dello slider - Firefox */
+/* Pollicino dello slider - Firefox: parte trascinabile */
 input[type=range]::-moz-range-thumb {
     width: 20px;
     height: 20px;
@@ -227,13 +240,14 @@ input[type=range]::-moz-range-thumb {
     margin-top: -7px;
 }
 
+/* Effetto hover sul pollicino - Firefox */
 input[type=range]::-moz-range-thumb:hover {
     background: var(--accento-hover);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6);
     transform: scale(1.1);
 }
 
-/* La traccia dello slider - Chrome/Safari */
+/* Traccia dello slider - Chrome/Safari: sfondo con gradiente */
 input[type=range]::-webkit-slider-runnable-track {
     background: linear-gradient(to right, #334155 0%, var(--accento-principale) 50%, #334155 100%);
     height: 6px;
@@ -241,7 +255,7 @@ input[type=range]::-webkit-slider-runnable-track {
     border: none;
 }
 
-/* La traccia dello slider - Firefox */
+/* Traccia dello slider - Firefox: sfondo */
 input[type=range]::-moz-range-track {
     background: #334155;
     height: 6px;
@@ -249,7 +263,7 @@ input[type=range]::-moz-range-track {
     border: none;
 }
 
-/* BOX DESCRIZIONE ALGORITMO */
+/* Box info algoritmo */
 #scatola-info {
     width: 90%;
     max-width: 900px;
@@ -260,12 +274,14 @@ input[type=range]::-moz-range-track {
     margin-bottom: 30px;
 }
 
+/* Titolo dell'algoritmo nel box informazioni */
 #scatola-info h3 {
     margin: 0 0 5px 0;
     color: var(--accento-principale);
     font-size: 16px;
 }
 
+/* Testo della descrizione algoritmo */
 #scatola-info p {
     margin: 0;
     font-size: 14px;
@@ -273,7 +289,7 @@ input[type=range]::-moz-range-track {
     color: #cbd5e1;
 }
 
-/* CONTENITORE BARRE */
+/* Contenitore barre */
 #contenitore-barre {
     display: flex;
     align-items: flex-end;  /* Allinea le barre in basso */
@@ -288,7 +304,7 @@ input[type=range]::-moz-range-track {
     margin-bottom: 30px;
 }
 
-/* BARRE (elementi dell'array) */
+/* Barre array */
 .barra {
     margin: 0 1px;
     background-color: var(--barra-normale);
@@ -298,22 +314,22 @@ input[type=range]::-moz-range-track {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Colore barra durante CONFRONTO */
+/* Classe aggiunta durante il confronto tra barre */
 .barra.confronto {
     background-color: var(--barra-confronto) !important;
 }
 
-/* Colore barra quando è ORDINATA */
+/* Classe aggiunta quando una barra è in posizione corretta (ordinata) */
 .barra.ordinata {
     background-color: var(--barra-ordinata) !important;
 }
 
-/* Colore barra PIVOT (Quick Sort) */
+/* Classe per il pivot nel Quick Sort */
 .barra.pivot {
     background-color: var(--barra-pivot) !important;
 }
 
-/* LEGENDA E STATISTICHE */
+/* Legenda statistiche */
 #legenda-statistiche {
     width: 90%;
     max-width: 900px;
@@ -329,12 +345,14 @@ input[type=range]::-moz-range-track {
     border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
+/* Container della legenda: mostra i significati dei colori */
 .legenda {
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
 }
 
+/* Elemento singolo della legenda: icona colore + etichetta */
 .elemento-legenda {
     display: flex;
     align-items: center;
@@ -343,6 +361,7 @@ input[type=range]::-moz-range-track {
     color: var(--testo-secondario);
 }
 
+/* Quadretto di colore nella legenda */
 .quadretto-legenda {
     width: 18px;
     height: 18px;
@@ -350,12 +369,14 @@ input[type=range]::-moz-range-track {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Container delle statistiche: contatori di operazioni */
 .statistiche {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
+/* Singolo elemento di statistica: etichetta + valore */
 .elemento-stat {
     display: flex;
     align-items: center;
@@ -363,6 +384,7 @@ input[type=range]::-moz-range-track {
     font-size: 13px;
 }
 
+/* Etichetta statistiche: testo descrittivo */
 .etichetta-stat {
     color: var(--testo-secondario);
     font-weight: 600;
@@ -370,6 +392,7 @@ input[type=range]::-moz-range-track {
     letter-spacing: 0.5px;
 }
 
+/* Valore statistiche: numero di comparazioni/scambi in evidenza */
 .valore-stat {
     color: var(--accento-principale);
     font-weight: 700;

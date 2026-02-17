@@ -8,18 +8,14 @@
 </head>
 <body>
 
-    <!-- INTESTAZIONE: Titolo della pagina -->
     <div class="intestazione">
         <h1>Visualizzatore di Algoritmi di Ordinamento</h1>
         <p class="sottotitolo">Progetto di Informatica - 4° Superiore - Istituto Tecnico</p>
     </div>
 
-    <!-- CONTROLLI: Contiene i pulsanti e i menu per controllare l'app -->
     <div class="controlli">
-        <!-- Pulsante per generare un nuovo array casuale -->
         <button id="btnNuovoArray">Nuovo Array</button>
         
-        <!-- Gruppo per selezionare quale algoritmo usare -->
         <div class="gruppo">
             <label>Scegli Algoritmo:</label>
             <select id="selAlgoritmo">
@@ -30,28 +26,22 @@
             </select>
         </div>
 
-        <!-- Slider per controllare la velocità dell'animazione -->
         <div class="gruppo slider-gruppo">
             <label>Velocità</label>
             <input type="range" id="sliderVelocita" min="1" max="100" value="60">
         </div>
 
-        <!-- Pulsante per iniziare l'ordinamento -->
         <button id="btnOrdina" class="pulsante-azione">Ordina</button>
     </div>
 
-    <!-- BOX DESCRIZIONE: Mostra le informazioni sull'algoritmo attualmente selezionato -->
     <div id="scatola-info">
         <h3 id="titoloAlgoritmo">Bubble Sort</h3>
         <p id="infoAlgoritmo">Confronta coppie di elementi adiacenti e li scambia se sono nell'ordine sbagliato. È semplice ma inefficiente su grandi array.</p>
     </div>
 
-    <!-- CONTENITORE ARRAY: Dove vengono visualizzate le barre (elementi dell'array) -->
     <div id="contenitore-barre"></div>
 
-    <!-- LEGENDA E STATISTICHE: Spiega i colori e mostra i contatori di operazioni -->
     <div id="legenda-statistiche">
-        <!-- LEGENDA: Colori usati durante l'ordinamento -->
         <div class="legenda">
             <div class="elemento-legenda">
                 <div class="quadretto-legenda" style="background-color: #38bdf8;"></div>
@@ -70,7 +60,6 @@
                 <span>Ordinato</span>
             </div>
         </div>
-        <!-- STATISTICHE: Contatori di comparazioni e scambi -->
         <div class="statistiche">
             <div class="elemento-stat">
                 <span class="etichetta-stat">Comparazioni:</span>
@@ -83,7 +72,6 @@
         </div>
     </div>
 
-    <!-- SCRIPT: Il file JavaScript che contiene la logica degli algoritmi -->
     <script src="script.js"></script>
 </body>
 </html>
