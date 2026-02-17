@@ -1,18 +1,3 @@
-/* ========================================
-   FOGLIO DI STILE - VISUALIZZATORE ALGORITMI
-   ========================================
-   Questo file contiene tutti gli stili CSS della pagina.
-   Lo uso per:
-   - Colori e sfondo (tema dark mode)
-   - Posizionamento degli elementi (flexbox)
-   - Animazioni durante l'ordinamento
-   
-   COSA DEVO SPIEGARE AL PROF:
-   - Come uso le variabili CSS (--colore) per coerenza
-   - Come uso flexbox per centrare e allineare elementi
-   - Come funzionano le transizioni per le animazioni
-======================================== */
-
 /* VARIABILI CSS: Colori che uso in tutto il sito */
 :root {
     /* Sfondi (tema scuro) */
