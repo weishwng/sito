@@ -246,7 +246,6 @@ window.addEventListener('load', () => {
     sliderVelocita.addEventListener("input", () => {
         //Visualizza il progresso con colore gradiente blu
         const percentuale = (sliderVelocita.value / 100) * 100;
-        sliderVelocita.style.background = `linear-gradient(to right, #6366f1 0%, #6366f1 ${percentuale}%, #334155 ${percentuale}%, #334155 100%)`;
     });
 
     //Ordina - avvia l'algoritmo selezionato
@@ -286,6 +285,4 @@ window.addEventListener('load', () => {
 
     //INIZIALIZZAZIONE
     creaNuovoArray();
-    //Stile iniziale dello slider
-    sliderVelocita.style.background = `linear-gradient(to right, #6366f1 0%, #6366f1 60%, #334155 60%, #334155 100%)`;
 });
