@@ -316,17 +316,17 @@ input[type=range]::-moz-range-track {
 
 /* Classe aggiunta durante il confronto tra barre */
 .barra.confronto {
-    background-color: var(--barra-confronto) !important;
+    background-color: var(--barra-confronto);
 }
 
 /* Classe aggiunta quando una barra è in posizione corretta (ordinata) */
 .barra.ordinata {
-    background-color: var(--barra-ordinata) !important;
+    background-color: var(--barra-ordinata);
 }
 
 /* Classe per il pivot nel Quick Sort */
 .barra.pivot {
-    background-color: var(--barra-pivot) !important;
+    background-color: var(--barra-pivot);
 }
 
 /* Legenda statistiche */

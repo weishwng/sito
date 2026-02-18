@@ -1,11 +1,11 @@
-//Attendi il caricamento del DOM
-document.addEventListener('DOMContentLoaded', () => {
-    //Seleziona gli elementi dal DOM con querySelector
+//Esegui quando la finestra ha finito di caricare tutte le risorse
+window.addEventListener('load', () => {
+    //Seleziona gli elementi dal dom con querySelector
     const contenitore = document.querySelector("#contenitore-barre");
     const sliderVelocita = document.querySelector("#sliderVelocita");
     const btnNuovoArray = document.querySelector("#btnNuovoArray");
     const btnOrdina = document.querySelector("#btnOrdina");
-    const selAlgoritmo = document.querySelector("#selAlgoritmo");
+    const setAlgoritmo = document.querySelector("#selAlgoritmo");
     const titoloAlgoritmo = document.querySelector("#titoloAlgoritmo");
     const infoAlgoritmo = document.querySelector("#infoAlgoritmo");
     const contatoreComparazioni = document.querySelector("#contatoreComparazioni");
@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //Ricava il ritardo dallo slider
     function ottieniRitardo() {
         //Slider da 1-100 convertito in millisecondi (200 a 20ms)
-        return 200 - (sliderVelocita.value * 1000);
+        return 200 - (sliderVelocita.value * 1.8);
     }
 
     //Azzera i contatori
-    function azzerapContatori() {
+    function azzeraContatori() {
         comparazioni = 0;
         scambi = 0;
         aggiornaContatori();
@@ -64,12 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Crea un nuovo array casuale
     function creaNuovoArray() {
-        if (staOrdinando) return;
+        if (staOrdinando){
+            return;
+        }
         contenitore.innerHTML = '';
         barre = [];
-        azzerapContatori();
+        azzeraContatori();
         
-        //Divide lo spazio disponibile fra 100 barre, meno 2px di margine
+        //Divide lo spazio disponibile fra numero di barre, meno 2px di margine per barra
         const larghezza = Math.floor(contenitore.clientWidth / numeroBarre) - 2;
 
         //Genera 100 barre con altezze casuali
@@ -81,13 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
             barra.style.height = `${altezza}px`;
             barra.style.width = `${larghezza}px`;
             contenitore.appendChild(barra);
-            //Salva riferimento DOM e altezza per l'ordinamento
+            //Salva riferimento altezza per l'ordinamento
             barre.push({ element: barra, height: altezza });
         }
     }
 
     //Rimuove le classi colore dalle barre
-    function azzerapColoriBarr() {
+    function azzeraColoriBarr() {
         barre.forEach(barra => {
             barra.element.classList.remove("ordinata", "confronto", "pivot");
         });
@@ -99,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let temp = barre[i].height;
         barre[i].height = barre[j].height;
         barre[j].height = temp;
-        //Aggiorna visivamente le altezze nel DOM
+        //Aggiorna visivamente le altezze
         barre[i].element.style.height = `${barre[i].height}px`;
         barre[j].element.style.height = `${barre[j].height}px`;
         scambi++;
@@ -109,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //ALGORITMI DI ORDINAMENTO
 
     //Bubble Sort: confronta coppie adiacenti
-    async function ordinaBubbleSort() {
+    async function BubbleSort() {
         for (let i = 0; i < barre.length; i++) {
             for (let j = 0; j < barre.length - i - 1; j++) {
                 //Colora in rosso gli elementi in confronto
@@ -132,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Selection Sort: trova il minimo e lo sposta
-    async function ordinaSelectionSort() {
+    async function SelectionSort() {
         for (let i = 0; i < barre.length; i++) {
             let indiceMinimo = i;
             //Colora in arancio l'elemento di riferimento
@@ -162,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Insertion Sort: inserisce ogni elemento nella posizione corretta
-    async function ordinaInsertion() {
+    async function InsertionSort() {
         for (let i = 0; i < barre.length; i++) {
             let j = i;
             //Muove all'indietro finché il valore è più piccolo del precedente
@@ -193,14 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         //Partiziona e ottieni l'indice del pivot
-        let indicePivot = await partiziona(inizio, fine);
+        let indicePivot = await partition(inizio, fine);
         //Ricorsivamente ordina la parte sinistra e destra
         await ordinaQuick(inizio, indicePivot - 1);
         await ordinaQuick(indicePivot + 1, fine);
     }
 
-    //Partiziona l'array intorno al pivot
-    async function partiziona(inizio, fine) {
+    //partition l'array intorno al pivot
+    async function partition(inizio, fine) {
         //Prende l'ultimo elemento come pivot
         let valPivot = barre[fine].height;
         barre[fine].element.classList.add("pivot");
@@ -232,12 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNuovoArray.addEventListener("click", creaNuovoArray);
 
     //Cambio algoritmo - aggiorna descrizione
-    selAlgoritmo.addEventListener("change", (e) => {
+    setAlgoritmo.addEventListener("change", (e) => {
         if (staOrdinando) return;
         const val = e.target.value;
         titoloAlgoritmo.innerText = datiAlgoritmi[val].titolo;
         infoAlgoritmo.innerText = datiAlgoritmi[val].info;
-        azzerapColoriBarr();
+        azzeraColoriBarr();
     });
 
     //Slider velocità - aggiorna colore barra
@@ -255,18 +257,18 @@ document.addEventListener('DOMContentLoaded', () => {
         //Disabilita i pulsanti durante l'ordinamento
         btnNuovoArray.disabled = true;
         btnOrdina.disabled = true;
-        selAlgoritmo.disabled = true;
-        azzerapContatori();
-        azzerapColoriBarr();
+        setAlgoritmo.disabled = true;
+        azzeraContatori();
+        azzeraColoriBarr();
 
         //Esegue l'algoritmo selezionato
-        const algo = selAlgoritmo.value;
+        const algo = setAlgoritmo.value;
         if (algo === 'bubble') {
-            await ordinaBubbleSort();
+            await BubbleSort();
         } else if (algo === 'selection') {
-            await ordinaSelectionSort();
+            await SelectionSort();
         } else if (algo === 'insertion') {
-            await ordinaInsertion();
+            await InsertionSort();
         } else if (algo === 'quick') {
             await ordinaQuick(0, barre.length - 1);
         }
@@ -279,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
         staOrdinando = false;
         btnNuovoArray.disabled = false;
         btnOrdina.disabled = false;
-        selAlgoritmo.disabled = false;
+        setAlgoritmo.disabled = false;
     });
 
     //INIZIALIZZAZIONE
