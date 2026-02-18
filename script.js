@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Crea pausa asincrona
     function aspetta(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
+        return new Promise(risolve => setTimeout(risolve, ms));
     }
 
     //Ricava il ritardo dallo slider
     function ottieniRitardo() {
         //Slider da 1-100 convertito in millisecondi (200 a 20ms)
-        return 200 - (sliderVelocita.value * 1.8);
+        return 200 - (sliderVelocita.value * 1000);
     }
 
     //Azzera i contatori
