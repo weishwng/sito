@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
     const sliderVelocita = document.querySelector("#sliderVelocita");
     const btnNuovoArray = document.querySelector("#btnNuovoArray");
     const btnOrdina = document.querySelector("#btnOrdina");
-    const setAlgoritmo = document.querySelector("#selAlgoritmo");
+    const setAlgoritmo = document.querySelector("#setAlgoritmo");
     const titoloAlgoritmo = document.querySelector("#titoloAlgoritmo");
     const infoAlgoritmo = document.querySelector("#infoAlgoritmo");
     const contatoreComparazioni = document.querySelector("#contatoreComparazioni");
@@ -22,19 +22,19 @@ window.addEventListener('load', () => {
     const datiAlgoritmi = {
         bubble: { 
             titolo: "Bubble Sort", 
-            info: "Confronta elementi adiacenti e li scambia se sono nell'ordine sbagliato. O(n²)" 
+            info: "Confronta elementi vicini e li scambia se sono nell'ordine sbagliato." 
         },
         selection: { 
             titolo: "Selection Sort", 
-            info: "Cerca il minimo e lo sposta all'inizio. O(n²)" 
+            info: "Cerca il minimo e lo sposta all'inizio." 
         },
         insertion: { 
             titolo: "Insertion Sort", 
-            info: "Inserisce ogni elemento nella posizione corretta. O(n²)" 
+            info: "Inserisce ogni elemento nella posizione corretta." 
         },
         quick: { 
             titolo: "Quick Sort", 
-            info: "Divida l'array con un pivot e ordina ricorsivamente. Media O(n log n)" 
+            info: "Divida l'array con un pivot mettendolo maggiore o minore al pivot e ordina ricorsivamente" 
         }
     };
 
@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
         aggiornaContatori();
     }
 
-    //Aggiorna i contatori nel DOM
+    //Aggiorna i contatori nella pagina web
     function aggiornaContatori() {
         contatoreComparazioni.innerText = comparazioni;
         contatoreScambi.innerText = scambi;
@@ -186,7 +186,7 @@ window.addEventListener('load', () => {
     }
 
     //Quick Sort: divide con pivot e ordina ricorsivamente
-    async function ordinaQuick(inizio, fine) {
+    async function quickSort(inizio, fine) {
         //Caso base: quando l'intervallo ha un solo elemento o meno
         if (inizio >= fine) {
             if (inizio >= 0 && inizio < barre.length) {
@@ -197,8 +197,8 @@ window.addEventListener('load', () => {
         //Partiziona e ottieni l'indice del pivot
         let indicePivot = await partition(inizio, fine);
         //Ricorsivamente ordina la parte sinistra e destra
-        await ordinaQuick(inizio, indicePivot - 1);
-        await ordinaQuick(indicePivot + 1, fine);
+        await quickSort(inizio, indicePivot - 1);
+        await quickSort(indicePivot + 1, fine);
     }
 
     //partition l'array intorno al pivot
@@ -230,28 +230,25 @@ window.addEventListener('load', () => {
 
     //EVENT LISTENERS
 
-    //Nuovo Array - genera array casuale
+    //Nuovo Array genera array casuale
     btnNuovoArray.addEventListener("click", creaNuovoArray);
 
-    //Cambio algoritmo - aggiorna descrizione
+    //Cambio algoritmo aggiorna descrizione
     setAlgoritmo.addEventListener("change", (e) => {
-        if (staOrdinando) return;
+        if (staOrdinando){
+            return;
+        }
         const val = e.target.value;
         titoloAlgoritmo.innerText = datiAlgoritmi[val].titolo;
         infoAlgoritmo.innerText = datiAlgoritmi[val].info;
         azzeraColoriBarr();
     });
 
-    //Slider velocità - aggiorna colore barra
-    sliderVelocita.addEventListener("input", () => {
-        //Visualizza il progresso con colore gradiente blu
-        const percentuale = (sliderVelocita.value / 100) * 100;
-    });
-
-    //Ordina - avvia l'algoritmo selezionato
+    //Ordina avvia l'algoritmo selezionato
     btnOrdina.addEventListener("click", async () => {
-        //Evita ordinamenti multipli contemporanei
-        if (staOrdinando) return;
+        if (staOrdinando){
+            return;
+        }
         staOrdinando = true;
         //Disabilita i pulsanti durante l'ordinamento
         btnNuovoArray.disabled = true;
@@ -269,13 +266,9 @@ window.addEventListener('load', () => {
         } else if (algo === 'insertion') {
             await InsertionSort();
         } else if (algo === 'quick') {
-            await ordinaQuick(0, barre.length - 1);
+            await quickSort(0, barre.length - 1);
         }
-
-        //Colora tutto in verde quando finito
-        barre.forEach(b => {
-            b.element.classList.add("ordinata");
-        });
+        
         //Riabilita i pulsanti
         staOrdinando = false;
         btnNuovoArray.disabled = false;

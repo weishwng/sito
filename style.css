@@ -1,400 +1,185 @@
-/* Variabili CSS */
 :root {
-    /* Sfondi (tema scuro) */
-    --sfondo-pagina: #0f172a;
-    --sfondo-pannelli: #1e293b;
-    
-    /* Testi */
-    --testo-principale: #f1f5f9;
-    --testo-secondario: #94a3b8;
-    
-    /* Accenti (colore principale dell'app) */
-    --accento-principale: #6366f1;
-    --accento-hover: #818cf8;
-    
-    /* Colori DELLE BARRE durante l'ordinamento */
-    --barra-normale: #38bdf8;        /* Blu/celeste */
-    --barra-confronto: #f43f5e;      /* Rosso - elemento in confronto */
-    --barra-ordinata: #10b981;       /* Verde - elemento ordinato */
-    --barra-pivot: #f59e0b;          /* Arancio - pivot del Quick Sort */
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --text: #f1f5f9;
+    --text2: #94a3b8;
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+
+    --bar: #38bdf8;
+    --bar-compare: #f43f5e;
+    --bar-sorted: #10b981;
+    --bar-pivot: #f59e0b;
 }
 
-/* Reset universale */
-* {
-    box-sizing: border-box;  /* Includi padding e border nella larghezza */
-}
+* { box-sizing: border-box; }
 
-/* Body - layout */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background-color: var(--sfondo-pagina);
-    color: var(--testo-principale);
     margin: 0;
-    /* Flexbox: sistema moderno per posizionare gli elementi */
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     display: flex;
-    flex-direction: column;  /* Metti gli elementi uno sopra l'altro */
-    align-items: center;     /* Centra orizzontalmente */
-    min-height: 100vh;       /* Almeno l'altezza dello schermo */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Intestazione */
-.intestazione {
-    text-align: center;
-    padding: 30px 20px;
-}
-
-/* Titolo principale H1 */
 h1 {
+    margin: 40px 0 10px;
     font-weight: 300;
     letter-spacing: 2px;
-    margin: 40px 0 10px 0;
     text-transform: uppercase;
-    /* Gradient: crea un effetto sfumatura di colore */
-    background: linear-gradient(to right, #fff, #94a3b8);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-align: center;
 }
 
-/* Sottotitolo: testo secondario in stile italico */
 .sottotitolo {
-    color: var(--testo-secondario);
-    font-size: 12px;
-    margin: 5px 0 0 0;
-    font-style: italic;
-}
-
-/* Sezione controlli */
-.controlli {
-    display: flex;
-    gap: 20px;
-    background: var(--sfondo-pannelli);
-    padding: 25px 35px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-    align-items: center;
-    margin-bottom: 35px;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1000px;
-}
-
-/* Gruppi */
-.gruppo {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-}
-
-/* Variante slider: layout verticale per label e slider */
-.slider-gruppo {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
-    padding: 0 10px;
-}
-
-/* Etichette: testo piccolo in maiuscole */
-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    color: var(--testo-secondario);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Pulsanti */
-button, select, .slider-container {
-    height: 44px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 14px;
-    font-family: inherit;
-}
-
-/* Pulsanti: stile grigio standard con effetto hover */
-button {
-    background-color: #334155;
-    color: white;
-    padding: 0 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-/* Effetto hover: cambio colore e animazione verso l'alto */
-button:hover {
-    background-color: #475569;
-    border-color: var(--testo-secondario);
-    transform: translateY(-1px);
-}
-
-/* Effetto al click: pulsante torna alla posizione normale */
-button:active {
-    transform: translateY(0);
-}
-
-/* Stato disabilitato: opacità ridotta e cursore non-allowed */
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* Pulsante Ordina */
-#btnOrdina {
-    background-color: var(--accento-principale);
-    border: none;
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-}
-
-/* Effetto hover sul pulsante Ordina: colore più intenso e ombra maggiore */
-#btnOrdina:hover {
-    background-color: var(--accento-hover);
-    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
-}
-
-/* Select */
-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: #334155;
-    color: white;
-    padding: 0 40px 0 15px;
-    cursor: pointer;
-    outline: none;
-    min-width: 160px;
-    /* Freccia personalizzata */
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    transition: border-color 0.2s;
-}
-
-/* Effetto hover sul select: cambia bordo */
-select:hover {
-    border-color: var(--accento-principale);
-}
-
-/* Effetto focus sul select: evidenza con bordo e ombra */
-select:focus {
-    border-color: var(--accento-principale);
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
-}
-
-/* Opzioni del dropdown: colore di sfondo scuro */
-select option {
-    background-color: var(--sfondo-pannelli);
-    color: white;
-}
-
-/* Slider */
-input[type=range] {
-    height: 6px;
-    width: 120px;
-    background: transparent;
-    cursor: pointer;
-    margin: 0;
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-/* Pollicino dello slider - Chrome/Safari: parte trascinabile */
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: var(--accento-principale);
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
-    transition: all 0.2s;
-    margin-top: -7px;
-}
-
-/* Effetto hover sul pollicino - Chrome/Safari */
-input[type=range]::-webkit-slider-thumb:hover {
-    background: var(--accento-hover);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6);
-    transform: scale(1.1);
-}
-
-/* Pollicino dello slider - Firefox: parte trascinabile */
-input[type=range]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: var(--accento-principale);
-    cursor: pointer;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
-    transition: all 0.2s;
-    margin-top: -7px;
-}
-
-/* Effetto hover sul pollicino - Firefox */
-input[type=range]::-moz-range-thumb:hover {
-    background: var(--accento-hover);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.6);
-    transform: scale(1.1);
-}
-
-/* Traccia dello slider - Chrome/Safari: sfondo con gradiente */
-input[type=range]::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, #334155 0%, var(--accento-principale) 50%, #334155 100%);
-    height: 6px;
-    border-radius: 3px;
-    border: none;
-}
-
-/* Traccia dello slider - Firefox: sfondo */
-input[type=range]::-moz-range-track {
-    background: #334155;
-    height: 6px;
-    border-radius: 3px;
-    border: none;
-}
-
-/* Box info algoritmo */
-#scatola-info {
-    width: 90%;
-    max-width: 900px;
-    background: rgba(30, 41, 59, 0.7);
-    border-left: 4px solid var(--accento-principale);
-    padding: 20px 25px;
-    border-radius: 8px;
+    color: var(--text2);
+    font-size: 13px;
     margin-bottom: 30px;
 }
 
-/* Titolo dell'algoritmo nel box informazioni */
-#scatola-info h3 {
-    margin: 0 0 5px 0;
-    color: var(--accento-principale);
-    font-size: 16px;
+.controlli {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--panel);
+    padding: 25px 30px;
+    border-radius: 12px;
+    margin-bottom: 35px;
 }
 
-/* Testo della descrizione algoritmo */
-#scatola-info p {
-    margin: 0;
+.gruppo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+label {
+    font-size: 11px;
+    color: var(--text2);
+    text-transform: uppercase;
+}
+
+button, select {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 8px;
+    border: none;
     font-size: 14px;
-    line-height: 1.5;
-    color: #cbd5e1;
 }
 
-/* Contenitore barre */
+button {
+    background: #334155;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #475569;
+}
+
+#btnOrdina {
+    background: var(--primary);
+}
+
+#btnOrdina:hover {
+    background: var(--primary-hover);
+}
+
+select {
+    background: #334155;
+    color: white;
+}
+
+input[type=range] {
+    width: 120px;
+}
+
 #contenitore-barre {
     display: flex;
-    align-items: flex-end;  /* Allinea le barre in basso */
+    align-items: flex-end;
     justify-content: center;
     height: 450px;
     width: 95%;
     max-width: 1200px;
-    background-color: #020617;
+    background: #020617;
     border-radius: 12px;
-    padding: 30px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
     margin-bottom: 30px;
 }
 
-/* Barre array */
 .barra {
     margin: 0 1px;
-    background-color: var(--barra-normale);
+    background: var(--bar);
     border-radius: 3px 3px 0 0;
-    /* Transition: animazione quando l'altezza cambia */
-    transition: height 0.1s ease-out;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    transition: height 0.1s;
 }
 
-/* Classe aggiunta durante il confronto tra barre */
-.barra.confronto {
-    background-color: var(--barra-confronto);
-}
+.barra.confronto { background: var(--bar-compare); }
+.barra.ordinata { background: var(--bar-sorted); }
+.barra.pivot { background: var(--bar-pivot); }
 
-/* Classe aggiunta quando una barra è in posizione corretta (ordinata) */
-.barra.ordinata {
-    background-color: var(--barra-ordinata);
-}
-
-/* Classe per il pivot nel Quick Sort */
-.barra.pivot {
-    background-color: var(--barra-pivot);
-}
-
-/* Legenda statistiche */
 #legenda-statistiche {
     width: 90%;
     max-width: 900px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 40px;
     flex-wrap: wrap;
-    margin-top: -10px;
+    gap: 30px;
     padding: 20px;
-    background: rgba(30, 41, 59, 0.5);
-    border-radius: 8px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background: var(--panel);
+    border-radius: 10px;
 }
 
-/* Container della legenda: mostra i significati dei colori */
-.legenda {
+.legenda, .statistiche {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
-/* Elemento singolo della legenda: icona colore + etichetta */
-.elemento-legenda {
+.elemento-legenda,
+.elemento-stat {
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 13px;
-    color: var(--testo-secondario);
 }
 
-/* Quadretto di colore nella legenda */
 .quadretto-legenda {
-    width: 18px;
-    height: 18px;
-    border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
 }
 
-/* Container delle statistiche: contatori di operazioni */
-.statistiche {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-/* Singolo elemento di statistica: etichetta + valore */
-.elemento-stat {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-}
-
-/* Etichetta statistiche: testo descrittivo */
-.etichetta-stat {
-    color: var(--testo-secondario);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Valore statistiche: numero di comparazioni/scambi in evidenza */
 .valore-stat {
-    color: var(--accento-principale);
-    font-weight: 700;
-    font-size: 16px;
-    min-width: 40px;
+    color: var(--primary);
+    font-weight: bold;
 }
+
+#scatola-info {
+    width: 90%;
+    max-width: 900px;
+    background: var(--panel);
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--primary);
+}
+
+#scatola-info h3 {
+    margin: 0 0 8px 0;
+    color: var(--primary);
+    font-size: 16px;
+}
+
+#scatola-info p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text2);
+}
+
