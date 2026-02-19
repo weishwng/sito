@@ -180,9 +180,7 @@ window.addEventListener('load', () => {
                 j--;
             }
             //Colora in verde tutti gli elementi ordinati fino a i
-            for (let k = 0; k <= i; k++) {
-                barre[k].element.classList.add("ordinata");
-            }
+            barre[i].element.classList.add("ordinata");
         }
     }
 
