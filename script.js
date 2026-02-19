@@ -1,6 +1,6 @@
-//Esegui quando la finestra ha finito di caricare tutte le risorse
+//Esegue quando la finestra ha finito di caricare
 window.addEventListener('load', () => {
-    //Seleziona gli elementi dal dom con querySelector
+    //Seleziona gli elementi con querySelector
     const contenitore = document.querySelector("#contenitore-barre");
     const sliderVelocita = document.querySelector("#sliderVelocita");
     const btnNuovoArray = document.querySelector("#btnNuovoArray");
@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
     const contatoreComparazioni = document.querySelector("#contatoreComparazioni");
     const contatoreScambi = document.querySelector("#contatoreScambi");
 
-    //Variabili globali
+    //Variabili
     let barre = [];
     let staOrdinando = false;
     const numeroBarre = 100;
@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
         }
     };
 
-    //Crea pausa asincrona
+    //Crea pausa
     function aspetta(ms) {
         return new Promise(risolve => setTimeout(risolve, ms));
     }
@@ -159,6 +159,7 @@ window.addEventListener('load', () => {
             await scambia(i, indiceMinimo);
             barre[indiceMinimo].element.classList.remove("pivot");
             //Colora in verde l'elemento ordinato
+            barre[i].element.classList.remove("pivot");
             barre[i].element.classList.add("ordinata");
         }
     }
@@ -194,7 +195,7 @@ window.addEventListener('load', () => {
             }
             return;
         }
-        //Partiziona e ottieni l'indice del pivot
+        //partiziona e ottieni l'indice del pivot
         let indicePivot = await partition(inizio, fine);
         //Ricorsivamente ordina la parte sinistra e destra
         await quickSort(inizio, indicePivot - 1);
